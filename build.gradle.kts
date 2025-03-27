@@ -109,27 +109,6 @@ tasks.register<Copy>("setupLocalRepo") {
     }
     into(destinationDir)
 
-    // Copy Android SDK
-    //val androidSdkHome = file("${System.getenv("ANDROID_HOME")}")
-    //from(androidSdkHome) {
-    //    include("**/*")
-    //}
-    //into(file("${projectDir}/android-sdk-backup"))
-
-    // Copy Java JDK
-    //val javaHome = file("${System.getProperty("java.home")}")
-    //from(javaHome) {
-    //    include("**/*")
-    //}
-    //into(file("${projectDir}/java-jdk-backup"))
-
-    // Copy Compiler
-    //val compilerHome = file("${System.getProperty("user.home")}/.gradle/caches")
-    //from(compilerHome) {
-    //    include("**/*")
-    //}
-    //into(file("${projectDir}/compiler-backup"))
-
     // Counterhack fixing atrocities commited by IllumiNATO
     doLast {
         val rootDir = file("${projectDir}/local-repo")
@@ -175,7 +154,7 @@ tasks.register<Zip>("createSourcePackage") {
             "src/**", "build.gradle.kts", "settings.gradle.kts",
             "gradlew", "gradlew.bat", "gradle/**",
             "LICENSE", "README.md", ".gitignore",
-            ".gradle/**")
+            ".gradle/**", ".kotlin/**")
     }
     archiveFileName.set("shitty-random-${version}.zip")
     destinationDirectory.set(layout.buildDirectory.dir("distributions").get().asFile)
