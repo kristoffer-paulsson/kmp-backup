@@ -154,7 +154,7 @@ tasks.register<Zip>("createSourcePackage") {
             "src/**", "build.gradle.kts", "settings.gradle.kts",
             "gradlew", "gradlew.bat", "gradle/**",
             "LICENSE", "README.md", ".gitignore",
-            ".gradle/**", ".kotlin/**")
+            ".gradle/**", ".kotlin/**", ".git/**")
     }
     archiveFileName.set("shitty-random-${version}.zip")
     destinationDirectory.set(layout.buildDirectory.dir("distributions").get().asFile)
